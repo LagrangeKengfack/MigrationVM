@@ -1,0 +1,16 @@
+[Unit]
+Description=Live Migrator v2 - Signal-driven migration orchestrator for Proxmox VE
+After=network.target pve-cluster.service pvedaemon.service
+Wants=pve-cluster.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/live-migrator.sh -c /etc/live-migrator/live-migrator.conf
+PIDFile=/var/run/live-migrator.pid
+Restart=on-failure
+RestartSec=30
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

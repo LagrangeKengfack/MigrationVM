@@ -1,0 +1,25 @@
+# Compiled objects
+*.o
+*.a
+*.so
+
+# Compiled binary
+vmstate-guardian/vmstate-guardian
+
+# Debian package build artifacts
+*.deb
+live-migrator/debian-pkg/var/
+
+# Logs
+*.log
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

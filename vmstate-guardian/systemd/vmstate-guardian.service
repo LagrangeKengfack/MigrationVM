@@ -1,0 +1,16 @@
+[Unit]
+Description=VMState Guardian - VM memory state snapshot and HA restore daemon
+After=network.target pve-cluster.service pvedaemon.service
+Wants=pve-cluster.service
+
+[Service]
+Type=forking
+ExecStart=/usr/local/sbin/vmstate-guardian -c /etc/vmstate-guardian/vmstate-guardian.conf
+PIDFile=/var/run/vmstate-guardian.pid
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

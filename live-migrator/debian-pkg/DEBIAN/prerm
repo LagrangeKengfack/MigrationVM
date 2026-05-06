@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+
+# Arrêter et désactiver le service avant la suppression
+systemctl stop live-migrator || true
+systemctl disable live-migrator || true

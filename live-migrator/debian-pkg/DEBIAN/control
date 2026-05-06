@@ -1,0 +1,11 @@
+Package: live-migrator
+Version: 2.0.0
+Section: admin
+Priority: optional
+Architecture: all
+Depends: bash (>= 4.0), python3, qemu-server, pve-manager, inotify-tools
+Maintainer: Lagrange <lagrange@proxmox-cluster>
+Description: Signal-driven migration orchestrator for Proxmox VE (v2)
+ Reacts to signals from RAM, vCPU, and GPU agents via inotifywait.
+ Supports MIGRATE_VM, LIGHTEN_NODE, GPU_REQUEST, and CONSOLIDATE_VM.
+ Includes auto-placement, cluster harmonization, and maintenance mode.

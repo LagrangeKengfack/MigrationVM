@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e
+
+# Créer les répertoires d'état v2
+mkdir -p /var/lib/live-migrator/signals/processed
+mkdir -p /var/lib/live-migrator/signals/responses
+mkdir -p /var/lib/live-migrator/vm_cooldowns
+mkdir -p /var/lib/live-migrator/pending_consolidations
+
+# Recharger systemd
+systemctl daemon-reload
+
+# Activer et démarrer le service
+systemctl enable live-migrator
+systemctl start live-migrator || true
+
+echo ""
+echo "=== live-migrator v2 installé avec succès ==="
+echo "  Éditez /etc/live-migrator/live-migrator.conf si nécessaire"
+echo "  Vérifiez avec : migrator-ctl.sh status"
+echo ""
